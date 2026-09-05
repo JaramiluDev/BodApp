@@ -132,7 +132,13 @@
     document.getElementById('btn-mostrar-recuerdos').onclick = async () => {
       mostrarPantalla('recuerdos', '#1a1a1a');
       try {
-        const res = await fetch(`${URL_BASE}/api/images`);
+        // Petición con la llave para evitar el bloqueo de Ngrok
+        const res = await fetch(`${URL_BASE}/api/images`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true'
+          }
+        });
+        
         mediaArr = await res.json();
         
         if (mediaArr.length > 0) {
@@ -143,6 +149,7 @@
           textoCarga.textContent = "Aún no hay recuerdos subidos.";
         }
       } catch (e) {
+        console.error(e); // Para ver el error exacto si falla
         textoCarga.textContent = "Error al cargar los archivos.";
       }
     };
