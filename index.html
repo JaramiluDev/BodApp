@@ -36,19 +36,26 @@
     </div>
   </div>
 
-  <!-- PANTALLA 2: SUBIDA -->
-  <div id="pantalla-subida" class="d-none min-h-screen d-flex flex-column align-items-center justify-content-center bg-light p-4">
-    <div class="container text-center" style="max-width: 500px;">
-      <button id="btn-volver-1" class="btn btn-outline-dark mb-4 fw-bold rounded-pill px-4">&larr; Volver al inicio</button>
-      <h2 class="mb-4 fw-bold" style="color: #2c3e50;">Comparte tus Recuerdos</h2>
-      <div class="card p-4">
-        <input type="file" id="fileInput" class="form-control mb-3" multiple accept="image/*,video/*">
-        <button id="uploadBtn" class="btn btn-dark w-100 py-3 fw-bold rounded-pill">Subir Recuerdos</button>
-        <div id="loading" class="mt-3 d-none">
-          <div class="spinner-border text-dark" role="status"></div>
-          <p class="mt-2 text-muted fw-bold">Optimizando y subiendo...</p>
+<!-- PANTALLA 2: SUBIDA (Diseño Elegante) -->
+  <div id="pantalla-subida" class="d-none min-h-screen flex-col items-center justify-center bg-[#1a1a1a] p-6 text-white">
+    <div class="w-full max-w-md text-center">
+      <!-- Botón Volver -->
+      <button id="btn-volver-1" class="mb-8 rounded-full border border-white/25 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20">
+        &larr; Volver al inicio
+      </button>
+      <!-- Título -->
+      <h2 class="mb-6 font-serif text-3xl font-semibold tracking-wide text-white">Comparte tus Recuerdos</h2>
+      <!-- Tarjeta Contenedora -->
+      <div class="rounded-[2rem] border border-white/10 bg-[#262626] p-6 shadow-2xl">
+        <input type="file" id="fileInput" class="form-control mb-5 border-white/20 bg-black/40 text-white/90 shadow-none focus:border-white/50 focus:bg-black/60" multiple accept="image/*,video/*" style="color-scheme: dark;">
+        <button id="uploadBtn" class="w-full rounded-full bg-white px-6 py-3.5 text-base font-semibold text-black shadow-lg transition-colors hover:bg-gray-200">
+          Subir Recuerdos
+        </button>
+          <div id="loading" class="mt-4 d-none flex-col items-center">
+          <div class="spinner-border text-light mt-2" role="status" style="width: 1.5rem; height: 1.5rem;"></div>
+          <p class="mt-3 text-sm font-medium text-white/70">Optimizando y subiendo...</p>
         </div>
-        <p id="status" class="mt-3 text-success fw-bold d-none">¡Recuerdos guardados! 🎉</p>
+        <p id="status" class="mt-4 text-sm font-semibold text-green-400 d-none">¡Recuerdos guardados! 🎉</p>
       </div>
     </div>
   </div>
@@ -76,10 +83,6 @@
         <button id="btn-prev" class="flex size-12 items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
         </button>
-        <div class="flex gap-2" id="indicador-puntos">
-          <span class="w-6 h-1.5 bg-white rounded-full"></span>
-          <span class="w-1.5 h-1.5 bg-white/30 rounded-full"></span>
-        </div>
         <button id="btn-next" class="flex size-12 items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
         </button>
@@ -104,7 +107,7 @@
       document.body.style.backgroundColor = bgColor;
     }
 
-    document.getElementById('btn-mostrar-subida').onclick = () => mostrarPantalla('subida', '#f4f6f9');
+    document.getElementById('btn-mostrar-subida').onclick = () => mostrarPantalla('subida', '#1a1a1a');
     document.getElementById('btn-volver-1').onclick = () => mostrarPantalla('inicio', '#000');
     document.getElementById('btn-volver-2').onclick = () => mostrarPantalla('inicio', '#000');
 
